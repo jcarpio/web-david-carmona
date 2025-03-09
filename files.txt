@@ -1,0 +1,50 @@
+
+https://davidcarmona.com/en/home-english/#expand
+
+https://davidcarmona.com/wordpress/wp-includes/js/wp-emoji-release.min.js?ver=4.9.12 +3 years 10 months
+http://fonts.googleapis.com/css?family=Josefin+Sans%3A400%2C600%2C700%7COpen+Sans%3A300%2C300italic%2C400%2C600%2C600italic%2C700&subset=latin%2Clatin-ext&ver=4.9.12 -1 month 8 days
+https://fonts.googleapis.com/css?family=Abril+Fatface%3Aregular&ver=4.9.12 +5 days 10 hours
+https://fonts.googleapis.com/css?family=Josefin+Sans:600 -9 hours 14 minutes
+http://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.2.8/wavesurfer.min.js +5 hours 24 minutes
+https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js +4 hours 42 minutes
+https://fonts.googleapis.com/css?family=Droid+Serif%3A400%2C700&ver=4.9.12 +4 hours 1 minute
+https://fonts.googleapis.com/css?family=Raleway%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900&ver=4.9.12 +4 hours 1 minute
+https://fonts.googleapis.com/css?family=Open+Sans%3A300%2C400%2C600%2C700%2C800&ver=4.9.12 +4 hours 1 minute
+https://static.doubleclick.net/instream/ad_status.js +17 minutes 13 seconds
+https://www.youtube.com/yts/jsbin/player_ias-vflbwmoEe/en_US/remote.js +17 minutes 13 seconds
+https://www.youtube.com/yts/jsbin/www-embed-player-vfl-E6bFQ/www-embed-player.js +16 minutes 43 seconds
+https://www.youtube.com/embed/_ZdhhA502xU?feature=oembed +16 minutes 21 seconds
+https://www.youtube.com/yts/cssbin/www-player-vflf-gv6Q.css +16 minutes 13 seconds
+https://www.youtube.com/yts/jsbin/player_ias-vflbwmoEe/en_US/base.js +15 minutes 36 seconds
+https://www.google.com/js/bg/k1TEbC94CojWAMomAdcZR629m8Gx8QTwr-ibHLNEk3s.js +15 minutes 18 seconds
+https://www.youtube.com/yts/jsbin/player_ias-vflbwmoEe/en_US/embed.js +8 minutes 38 seconds
+https://davidcarmona.com/wordpress/wp-content/themes/croma/js/plugins.all.min.js +54 seconds
+https://davidcarmona.com/wordpress/wp-content/uploads/2016/05/buy_gplay.png +52 seconds
+https://davidcarmona.com/wordpress/wp-content/cache/wpfc-minified/f44993c3c9a8f2d644e564ff7b640b77/1561977575index.css +43 seconds
+https://davidcarmona.com/wordpress/wp-content/themes/croma/js/barba.min.js +42 seconds
+https://davidcarmona.com/wordpress/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20 +40 seconds
+https://davidcarmona.com/wordpress/wp-content/plugins/croma-music/js/countdown/jquery.plugin.min.js +32 seconds
+https://davidcarmona.com/wordpress/wp-content/plugins/revslider//admin/assets/images/tp-brokenimage.png +24 seconds
+https://davidcarmona.com/wordpress/wp-content/uploads/2016/05/guitarra-inferior.jpg +23 seconds
+https://davidcarmona.com/wordpress/wp-content/plugins/croma-music/js/countdown/jquery.countdown.min.js +21 seconds
+https://davidcarmona.com/wordpress/wp-content/themes/croma/js/jquery.parallax.js +20 seconds
+https://davidcarmona.com/wordpress/wp-content/cache/wpfc-minified/89b8433ca2a415ed2f009d1c91f5dd8b/1561977575index.css +19 seconds
+https://davidcarmona.com/wordpress/wp-includes/js/wp-embed.min.js?ver=4.9.12 +16 seconds
+https://davidcarmona.com/wordpress/wp-content/cache/wpfc-minified/3434e8e1f066c30fefce7e37e6e90aa9/1561977575index.css +16 seconds
+https://davidcarmona.com/wordpress/wp-includes/js/underscore.min.js?ver=1.8.3 +15 seconds
+https://davidcarmona.com/wordpress/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=5.0.1 +13 seconds
+https://davidcarmona.com/wordpress/wp-content/uploads/2017/02/david-logo-black.png +11 seconds
+https://davidcarmona.com/wordpress/wp-content/uploads/2017/02/portada-david-c.jpg +10 seconds
+https://davidcarmona.com/wordpress/wp-content/cache/wpfc-minified/2ae3cb5bfc8310b994e38419c889fd4d/1571107807index.js +10 seconds
+https://davidcarmona.com/wordpress/wp-content/themes/croma/js/iron-audioplayer.js +7 seconds
+https://davidcarmona.com/wordpress/wp-content/themes/croma/js/utilities.js +6 seconds
+https://davidcarmona.com/wordpress/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.7 +5 seconds
+https://davidcarmona.com/wordpress/wp-content/plugins/revslider/admin/assets/images/transparent.png -4 seconds
+https://davidcarmona.com/wordpress/wp-content/uploads/2016/05/buy_itunes.png +4 seconds
+https://davidcarmona.com/wordpress/wp-content/plugins/croma-music/js/twitter/jquery.tweet.min.js -4 seconds
+https://davidcarmona.com/wordpress/wp-content/cache/wpfc-minified/b497a0de4830413b3ea559f23353f77a/1561977575index.css +4 seconds
+https://davidcarmona.com/wordpress/wp-content/uploads/2016/05/divider_white.png +3 seconds
+https://davidcarmona.com/wordpress/wp-content/themes/croma/js/main.js +2 seconds
+https://www.google-analytics.com/analytics.js -1 second
+https://davidcarmona.com/wordpress/wp-content/uploads/2016/05/divider_black.png
+https://davidcarmona.com/en/home-english/
