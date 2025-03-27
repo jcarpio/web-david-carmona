@@ -1,6 +1,6 @@
 {{Ficha de persona
 | nombre = David Carmona Fernández
-| imagen = David Carmona Fernández.jpg
+| imagen = David Carmona Fernánzdez .jpg
 | tamaño de imagen = 250px
 | pie de imagen = David Carmona Fernández en 2016
 | fecha de nacimiento = 11 de marzo de 1985
