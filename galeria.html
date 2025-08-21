@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - David Carmona</title>
+    <meta name="description" content="Galería de imágenes de David Carmona, guitarrista y compositor flamenco.">
+    
+    <!-- Fuentes originales -->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,600,600italic,700&subset=latin,latin-ext&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #ffffff;
+            color: #0a0a0a;
+            font-weight: 400;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+            position: relative;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .mobile-menu li {
+            margin: 20px 0;
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: #ccc;
+        }
+
+        .mobile-menu .language-selector {
+            margin-top: 40px;
+        }
+
+        .mobile-menu .language-selector a {
+            color: white;
+            font-size: 18px;
+            margin: 0 10px;
+        }
+
+        .mobile-menu .social-networks {
+            margin-top: 60px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .mobile-menu .social-networks a {
+            font-size: 30px;
+            color: white;
+        }
+
+        /* Close button */
+        .mobile-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 400;
+            letter-spacing: 6px;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #666;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-selector a {
+            text-decoration: none;
+            color: #000;
+            font-size: 12px;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 120px;
+            padding: 60px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .page-title h1 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 48px;
+            font-weight: 600;
+            letter-spacing: 8px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            width: 94px;
+            height: 2px;
+            background: #000;
+            margin: 0 auto;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .view-icon {
+            color: white;
+            font-size: 48px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .view-icon {
+            transform: scale(1.1);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            animation: fadeInScale 0.3s ease;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.1);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: -80px;
+        }
+
+        .lightbox-next {
+            right: -80px;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .social-networks {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .social-networks a {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-networks a:hover {
+            color: #666;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .footer-copyright a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .language-selector {
+                display: none;
+            }
+
+            .page-title h1 {
+                font-size: 36px;
+                letter-spacing: 4px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .gallery-item {
+                aspect-ratio: 16/10;
+            }
+
+            .lightbox-nav {
+                display: none;
+            }
+
+            .lightbox-close {
+                top: 20px;
+                right: 20px;
+            }
+
+            .header-content {
+                padding: 0 15px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title h1 {
+                font-size: 28px;
+                letter-spacing: 2px;
+            }
+
+            .gallery-grid {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">DAVID CARMONA</a>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="biografia.html">Biografía</a></li>
+                    <li><a href="conciertos.html">Conciertos</a></li>
+                    <li><a href="discografia.html">Discografía</a></li>
+                    <li><a href="videos.html">Videos</a></li>
+                    <li><a href="galeria.html" class="active">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="language-selector">
+                <a href="#" class="active">ES</a>
+                <span>|</span>
+                <a href="en/gallery.html">EN</a>
+            </div>
+
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="mobile-close" id="mobile-close">
+            <i class="fa fa-times"></i>
+        </button>
+        
+        <nav>
+            <ul>
+                <li><a href="biografia.html">Biografía</a></li>
+                <li><a href="conciertos.html">Conciertos</a></li>
+                <li><a href="discografia.html">Discografía</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="language-selector">
+            <a href="#" class="active">ES</a>
+            <span>|</span>
+            <a href="en/gallery.html">EN</a>
+        </div>
+
+        <ul class="social-networks">
+            <li><a href="https://www.facebook.com/DCarmonaOficial" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/dcarmonaoficial" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://www.youtube.com/channel/UCMC6kwDVAWH22zDf7l8CcyQ" target="_blank"><i class="fa fa-youtube-square"></i></a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Title -->
+            <div class="page-title">
+                <h1>Galería</h1>
+                <div class="divider"></div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid">
+                <div class="gallery-item" data-src="uploads/2017/03/foto18_bn.jpg">
+                    <img src="uploads/2017/03/foto18_bn.jpg" alt="David Carmona - Foto artística">
+                    <div class="gallery-overlay">
+                        <div class="view-icon">
+                            <i class="fa fa-search-plus"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-src="uploads/2017/03/foto10_bn.jpg">
+                    <img src="uploads/2017/03/foto10_bn.jpg" alt="David Carmona - Retrato artístico">
+                    <div class="gallery-overlay">
+                        <div class="view-icon">
+                            <i class="fa fa-search-plus"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-src="uploads/2017/02/portada-david.jpg">
+                    <img src="uploads/2017/02/portada-david.jpg" alt="David Carmona - Portada">
+                    <div class="gallery-overlay">
+                        <div class="view-icon">
+                            <i class="fa fa-search-plus"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-src="uploads/2017/02/david-solo-guitarra.jpg">
+                    <img src="uploads/2017/02/david-solo-guitarra.jpg" alt="David Carmona - Solo con guitarra">
+                    <div class="gallery-overlay">
+                        <div class="view-icon">
+                            <i class="fa fa-search-plus"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-src="uploads/2017/02/david-campo3.jpg">
+                    <img src="uploads/2017/02/david-campo3.jpg" alt="David Carmona - En el campo">
+                    <div class="gallery-overlay">
+                        <div class="view-icon">
+                            <i class="fa fa-search-plus"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-src="uploads/2017/02/david-estudio1.jpg">
+                    <img src="uploads/2017/02/david-estudio1.jpg" alt="David Carmona - En estudio">
+                    <div class="gallery-overlay">
+                        <div class="view-icon">
+                            <i class="fa fa-search-plus"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Puedes agregar más imágenes aquí -->
+                <div class="gallery-item" data-src="uploads/2016/05/david-imagen-medio2.jpg">
+                    <img src="uploads/2016/05/david-imagen-medio2.jpg" alt="David Carmona - Imagen promocional">
+                    <div class="gallery-overlay">
+                        <div class="view-icon">
+                            <i class="fa fa-search-plus"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-src="uploads/2016/05/david-imagen-medio-3.jpg">
+                    <img src="uploads/2016/05/david-imagen-medio-3.jpg" alt="David Carmona - Sesión fotográfica">
+                    <div class="gallery-overlay">
+                        <div class="view-icon">
+                            <i class="fa fa-search-plus"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-src="uploads/2016/05/David-Carmona-portada.jpg">
+                    <img src="uploads/2016/05/David-Carmona-portada.jpg" alt="David Carmona - Un Sueño de Locura">
+                    <div class="gallery-overlay">
+                        <div class="view-icon">
+                            <i class="fa fa-search-plus"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-close" id="lightbox-close">
+                <i class="fa fa-times"></i>
+            </div>
+            <div class="lightbox-nav lightbox-prev" id="lightbox-prev">
+                <i class="fa fa-chevron-left"></i>
+            </div>
+            <div class="lightbox-nav lightbox-next" id="lightbox-next">
+                <i class="fa fa-chevron-right"></i>
+            </div>
+            <img class="lightbox-image" id="lightbox-image" src="" alt="">
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <ul class="social-networks">
+                <li><a href="https://www.facebook.com/DCarmonaOficial" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/dcarmonaoficial" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCMC6kwDVAWH22zDf7l8CcyQ" target="_blank"><i class="fa fa-youtube-square"></i></a></li>
+            </ul>
+            
+            <div class="footer-copyright">
+                <p>Copyright © 2024 David Carmona. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll header effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Mobile menu functionality
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileClose = document.getElementById('mobile-close');
+        const body = document.body;
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            body.style.overflow = 'auto';
+        }
+
+        menuToggle.addEventListener('click', openMobileMenu);
+        mobileClose.addEventListener('click', closeMobileMenu);
+
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        mobileMenu.addEventListener('click', function(e) {
+            if (e.target === mobileMenu) {
+                closeMobileMenu();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Gallery and Lightbox functionality
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+
+        let currentImageIndex = 0;
+        const images = Array.from(galleryItems).map(item => ({
+            src: item.dataset.src,
+            alt: item.querySelector('img').alt
+        }));
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            lightboxImage.src = images[index].src;
+            lightboxImage.alt = images[index].alt;
+            lightbox.classList.add('active');
+            body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            body.style.overflow = 'auto';
+        }
+
+        function showPrevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            lightboxImage.src = images[currentImageIndex].src;
+            lightboxImage.alt = images[currentImageIndex].alt;
+        }
+
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            lightboxImage.src = images[currentImageIndex].src;
+            lightboxImage.alt = images[currentImageIndex].alt;
+        }
+
+        // Event listeners for gallery
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => openLightbox(index));
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', showPrevImage);
+        lightboxNext.addEventListener('click', showNextImage);
+
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', function(e) {
+            if (lightbox.classList.contains('active')) {
+                switch(e.key) {
+                    case 'Escape':
+                        closeLightbox();
+                        break;
+                    case 'ArrowLeft':
+                        showPrevImage();
+                        break;
+                    case 'ArrowRight':
+                        showNextImage();
+                        break;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
