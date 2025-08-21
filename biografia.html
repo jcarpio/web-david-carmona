@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biografía - David Carmona</title>
+    <meta name="description" content="David Carmona estudia con Manolo Sanlúcar desde los 13 años. Pertenece a una familia granadina gitana, en la que el flamenco lo es todo.">
+    
+    <!-- Fuentes originales -->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,600,600italic,700&subset=latin,latin-ext&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #ffffff;
+            color: #0a0a0a;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+            position: relative;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 400;
+            letter-spacing: 6px;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #666;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-selector a {
+            text-decoration: none;
+            color: #000;
+            font-size: 12px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .mobile-menu li {
+            margin: 20px 0;
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: #ccc;
+        }
+
+        .mobile-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero-bio {
+            height: 100vh;
+            background: url('uploads/2019/07/david-biografia-arriba-1024x490-1.jpg') center center;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bio::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            color: white;
+        }
+
+        .hero-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: clamp(32px, 6vw, 60px);
+            font-weight: 600;
+            letter-spacing: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 120px;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 35px;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        .divider {
+            width: 94px;
+            height: 2px;
+            background: #000;
+            margin: 0 auto 64px;
+        }
+
+        /* Biography Text */
+        .bio-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 15%;
+        }
+
+        .bio-text {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            text-align: justify;
+        }
+
+        .bio-text h5 {
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .bio-links {
+            margin-top: 40px;
+        }
+
+        .bio-links h3 {
+            margin-bottom: 15px;
+        }
+
+        .bio-links a {
+            color: #000;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            border-bottom: 2px solid #000;
+            transition: all 0.3s ease;
+        }
+
+        .bio-links a:hover {
+            color: #666;
+            border-bottom-color: #666;
+        }
+
+        /* Split Sections */
+        .split-section {
+            display: flex;
+            min-height: 60vh;
+        }
+
+        .split-left {
+            flex: 1;
+            background: url('uploads/2017/02/david-biografia-4.jpg') center center;
+            background-size: cover;
+        }
+
+        .split-right {
+            flex: 1;
+            background: url('uploads/2017/02/bajo-biografia-2.jpg') center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .split-right::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .download-content {
+            text-align: center;
+            z-index: 2;
+            color: white;
+            padding: 40px;
+        }
+
+        .download-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .download-main {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .download-button {
+            display: inline-block;
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .download-button:hover {
+            transform: scale(1.05);
+        }
+
+        .download-button img {
+            width: 156px;
+            height: 156px;
+        }
+
+        .download-footer {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+
+        /* Discography Section */
+        .discography-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .disco-item {
+            text-align: center;
+        }
+
+        .disco-year {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .disco-title {
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        /* Video Section */
+        .video-container {
+            width: 70%;
+            margin: 0 auto;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            margin-top: 75px;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .social-networks {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .social-networks a {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-networks a:hover {
+            color: #666;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .footer-copyright a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .language-selector {
+                display: none;
+            }
+
+            .hero-bio {
+                background-attachment: scroll;
+                height: 80vh;
+            }
+
+            .hero-title {
+                letter-spacing: 4px;
+            }
+
+            .bio-content {
+                padding: 0 10px;
+            }
+
+            .split-section {
+                flex-direction: column;
+            }
+
+            .split-left {
+                min-height: 40vh;
+            }
+
+            .split-right {
+                min-height: 60vh;
+            }
+
+            .video-container {
+                width: 90%;
+            }
+
+            .discography-grid {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .header-content {
+                padding: 0 15px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 24px;
+                letter-spacing: 2px;
+            }
+
+            .download-main {
+                font-size: 24px;
+            }
+
+            .video-container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">DAVID CARMONA</a>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="biografia.html" class="active">Biografía</a></li>
+                    <li><a href="conciertos.html">Conciertos</a></li>
+                    <li><a href="discografia.html">Discografía</a></li>
+                    <li><a href="videos.html">Videos</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="language-selector">
+                <a href="#" class="active">ES</a>
+                <span>|</span>
+                <a href="en/biography.html">EN</a>
+            </div>
+
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="mobile-close" id="mobile-close">
+            <i class="fa fa-times"></i>
+        </button>
+        
+        <nav>
+            <ul>
+                <li><a href="biografia.html">Biografía</a></li>
+                <li><a href="conciertos.html">Conciertos</a></li>
+                <li><a href="discografia.html">Discografía</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="language-selector">
+            <a href="#" class="active">ES</a>
+            <span>|</span>
+            <a href="en/biography.html">EN</a>
+        </div>
+
+        <ul class="social-networks">
+            <li><a href="https://www.facebook.com/DCarmonaOficial" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/dcarmonaoficial" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://www.youtube.com/channel/UCMC6kwDVAWH22zDf7l8CcyQ" target="_blank"><i class="fa fa-youtube-square"></i></a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-bio">
+        <div class="hero-content">
+            <h1 class="hero-title">BIOGRAFÍA</h1>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Biography Section -->
+        <section class="section">
+            <div class="container">
+                <h1 class="section-title">Biografía</h1>
+                <div class="divider"></div>
+                
+                <div class="bio-content">
+                    <div class="bio-text">
+                        <h5>
+                            David Carmona, pertenece a una familia granadina gitana, en la que el flamenco constituye su natural medio de expresión, manifestándose en situaciones cotidianas y en los acontecimientos más importantes e íntimos de la vida familiar.
+                        </h5>
+                        <h5>
+                            Se trata de los Fernández de Íllora, a la que pertenecen los cantaores Evangelino Fernández "El Rubio", José de Íllora, Isabel Fernández, Carmela Fernández, más conocidos en el ambiente flamenco local granadino. Después hay otros miembros de esta misma familia, los cuales sí se han dedicado profesionalmente, como Ramón de Loja, "El Moreno" (padre de Diego "El Cigala") o Morenito de Íllora.
+                        </h5>
+                    </div>
+                    
+                    <div class="bio-links">
+                        <h3><a href="#" target="_blank">Biografía completa en Español</a></h3>
+                        <h3><a href="#" target="_blank">Full biography in English</a></h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Split Section -->
+        <section class="split-section">
+            <div class="split-left"></div>
+            <div class="split-right">
+                <div class="download-content">
+                    <div class="download-title">DESCARGA AHORA</div>
+                    <div class="download-main">EL DOSSIER DE PRENSA</div>
+                    <a href="#" target="_blank" class="download-button">
+                        <img src="uploads/2016/05/download_button.png" alt="Descargar dossier de prensa">
+                    </a>
+                    <div class="download-footer">TODAS LAS NOTICIAS</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discography Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">DISCOGRAFÍA</h2>
+                <div class="divider"></div>
+                
+                <div class="discography-grid">
+                    <div class="disco-item">
+                        <div class="disco-year">2017</div>
+                        <div class="disco-title">UN SUEÑO DE LOCURA</div>
+                    </div>
+                    <div class="disco-item">
+                        <div class="disco-title">NUEVOS MEDIOS</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">VIDEO</h2>
+                <div class="divider"></div>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/OHbab12PUv8?feature=oembed&modestbranding=1&rel=0&showinfo=0&controls=1" 
+                            frameborder="0" 
+                            allow="autoplay; encrypted-media" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <ul class="social-networks">
+                <li><a href="https://www.facebook.com/DCarmonaOficial" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/dcarmonaoficial" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCMC6kwDVAWH22zDf7l8CcyQ" target="_blank"><i class="fa fa-youtube-square"></i></a></li>
+            </ul>
+            
+            <div class="footer-copyright">
+                <p>Copyright © 2024 David Carmona. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll header effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Mobile menu functionality
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileClose = document.getElementById('mobile-close');
+        const body = document.body;
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            body.style.overflow = 'auto';
+        }
+
+        menuToggle.addEventListener('click', openMobileMenu);
+        mobileClose.addEventListener('click', closeMobileMenu);
+
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        mobileMenu.addEventListener('click', function(e) {
+            if (e.target === mobileMenu) {
+                closeMobileMenu();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>
