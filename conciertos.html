@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conciertos - David Carmona</title>
+    <meta name="description" content="Fechas de conciertos y gira de David Carmona, guitarrista y compositor flamenco.">
+    
+    <!-- Fuentes originales -->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,600,600italic,700&subset=latin,latin-ext&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #ffffff;
+            color: #0a0a0a;
+            font-weight: 400;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+            position: relative;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .mobile-menu li {
+            margin: 20px 0;
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: #ccc;
+        }
+
+        .mobile-menu .language-selector {
+            margin-top: 40px;
+        }
+
+        .mobile-menu .language-selector a {
+            color: white;
+            font-size: 18px;
+            margin: 0 10px;
+        }
+
+        .mobile-menu .social-networks {
+            margin-top: 60px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .mobile-menu .social-networks a {
+            font-size: 30px;
+            color: white;
+        }
+
+        /* Close button */
+        .mobile-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 400;
+            letter-spacing: 6px;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #666;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-selector a {
+            text-decoration: none;
+            color: #000;
+            font-size: 12px;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 120px;
+            padding: 60px 0 100px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .page-title h1 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 48px;
+            font-weight: 600;
+            letter-spacing: 8px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            width: 94px;
+            height: 2px;
+            background: #000;
+            margin: 0 auto;
+        }
+
+        /* Concert Section */
+        .concert-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 60px;
+            border-radius: 12px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            margin-bottom: 40px;
+        }
+
+        .concert-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .concert-intro h2 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 36px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .concert-intro .intro-divider {
+            width: 120px;
+            height: 2px;
+            background: #000;
+            margin: 0 auto 30px;
+        }
+
+        .concert-intro p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Seated Widget Container */
+        .seated-widget-container {
+            margin: 40px 0;
+            min-height: 500px;
+            position: relative;
+        }
+
+        /* Loading state for widget */
+        .widget-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .widget-loading.hidden {
+            display: none;
+        }
+
+        /* Custom styles for Seated widget */
+        .seated-event-link1 {
+            background: transparent !important;
+            border: 2px solid #000 !important;
+            color: #000 !important;
+            padding: 12px 24px !important;
+            border-radius: 8px !important;
+            font-family: 'Open Sans', sans-serif !important;
+            font-weight: 600 !important;
+            letter-spacing: 1px !important;
+            text-transform: uppercase !important;
+            transition: all 0.3s ease !important;
+            text-decoration: none !important;
+        }
+
+        .seated-event-link1:hover {
+            background: #000 !important;
+            color: #fff !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+        }
+
+        /* Contact Info Section */
+        .contact-info {
+            background: #000;
+            color: white;
+            padding: 60px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .contact-info .info-divider {
+            width: 100px;
+            height: 2px;
+            background: white;
+            margin: 0 auto 40px;
+        }
+
+        .contact-info p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .contact-block {
+            text-align: center;
+        }
+
+        .contact-block h4 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .contact-block a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-block a:hover {
+            color: #ccc;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .social-networks {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .social-networks a {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-networks a:hover {
+            color: #666;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .footer-copyright a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .language-selector {
+                display: none;
+            }
+
+            .page-title h1 {
+                font-size: 36px;
+                letter-spacing: 4px;
+            }
+
+            .concert-section,
+            .contact-info {
+                padding: 40px 30px;
+            }
+
+            .concert-intro h2 {
+                font-size: 28px;
+                letter-spacing: 2px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .header-content {
+                padding: 0 15px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title h1 {
+                font-size: 28px;
+                letter-spacing: 2px;
+            }
+
+            .concert-intro h2 {
+                font-size: 24px;
+                letter-spacing: 1px;
+            }
+
+            .concert-section,
+            .contact-info {
+                padding: 30px 20px;
+            }
+
+            .contact-info h3 {
+                font-size: 22px;
+                letter-spacing: 2px;
+            }
+        }
+
+        /* Animation for loading */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .seated-widget-container {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">DAVID CARMONA</a>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="biografia.html">Biografía</a></li>
+                    <li><a href="conciertos.html" class="active">Conciertos</a></li>
+                    <li><a href="discografia.html">Discografía</a></li>
+                    <li><a href="videos.html">Videos</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="language-selector">
+                <a href="#" class="active">ES</a>
+                <span>|</span>
+                <a href="en/concerts.html">EN</a>
+            </div>
+
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="mobile-close" id="mobile-close">
+            <i class="fa fa-times"></i>
+        </button>
+        
+        <nav>
+            <ul>
+                <li><a href="biografia.html">Biografía</a></li>
+                <li><a href="conciertos.html">Conciertos</a></li>
+                <li><a href="discografia.html">Discografía</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="language-selector">
+            <a href="#" class="active">ES</a>
+            <span>|</span>
+            <a href="en/concerts.html">EN</a>
+        </div>
+
+        <ul class="social-networks">
+            <li><a href="https://www.facebook.com/DCarmonaOficial" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/dcarmonaoficial" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://www.youtube.com/channel/UCMC6kwDVAWH22zDf7l8CcyQ" target="_blank"><i class="fa fa-youtube-square"></i></a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Title -->
+            <div class="page-title">
+                <h1>Conciertos</h1>
+                <div class="divider"></div>
+            </div>
+
+            <!-- Concert Section -->
+            <div class="concert-section">
+                <div class="concert-intro">
+                    <h2>Próximas Fechas</h2>
+                    <div class="intro-divider"></div>
+                    <p>
+                        Descubre las próximas actuaciones de David Carmona. 
+                        Una experiencia única donde la guitarra flamenca cobra vida con toda su intensidad y pasión.
+                    </p>
+                </div>
+
+                <!-- Seated Widget Container -->
+                <div class="seated-widget-container">
+                    <div class="widget-loading" id="widget-loading">
+                        <i class="fa fa-spinner fa-spin" style="margin-right: 10px;"></i>
+                        Cargando fechas de conciertos...
+                    </div>
+                    
+                    <!-- Seated Widget -->
+                    <div id="seated-david-carmona" 
+                         data-artist-id="TU_ARTIST_ID_AQUI" 
+                         data-css-version="2"
+                         style="display: none;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Info Section -->
+            <div class="contact-info">
+                <h3>Información de Contratación</h3>
+                <div class="info-divider"></div>
+                <p>
+                    Para contrataciones, información sobre conciertos privados y actuaciones especiales, 
+                    ponte en contacto con nuestro equipo de management.
+                </p>
+
+                <div class="contact-links">
+                    <div class="contact-block">
+                        <h4>Management</h4>
+                        <a href="mailto:trini@icart.es">trini@icart.es</a>
+                        <a href="mailto:icart@icart.es">icart@icart.es</a>
+                        <a href="tel:+34914025253">+34 91 402 52 53</a>
+                    </div>
+
+                    <div class="contact-block">
+                        <h4>Prensa</h4>
+                        <a href="mailto:mjsegura@combocomunicacion.com">mjsegura@combocomunicacion.com</a>
+                        <a href="tel:+34958075760">+34 958 075 760</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <ul class="social-networks">
+                <li><a href="https://www.facebook.com/DCarmonaOficial" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/dcarmonaoficial" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCMC6kwDVAWH22zDf7l8CcyQ" target="_blank"><i class="fa fa-youtube-square"></i></a></li>
+            </ul>
+            
+            <div class="footer-copyright">
+                <p>Copyright © 2024 David Carmona. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Seated Widget Script -->
+    <script src="https://widget.seated.com/app.js"></script>
+
+    <script>
+        // Scroll header effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Mobile menu functionality
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileClose = document.getElementById('mobile-close');
+        const body = document.body;
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            body.style.overflow = 'auto';
+        }
+
+        menuToggle.addEventListener('click', openMobileMenu);
+        mobileClose.addEventListener('click', closeMobileMenu);
+
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        mobileMenu.addEventListener('click', function(e) {
+            if (e.target === mobileMenu) {
+                closeMobileMenu();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Seated widget loading management
+        document.addEventListener('DOMContentLoaded', function() {
+            const widgetLoading = document.getElementById('widget-loading');
+            const seatedWidget = document.getElementById('seated-david-carmona');
+            
+            // Simulate widget loading (you may need to adjust this based on Seated's actual loading events)
+            setTimeout(function() {
+                widgetLoading.classList.add('hidden');
+                seatedWidget.style.display = 'block';
+            }, 2000);
+
+            // Check if Seated widget has loaded
+            function checkSeatedLoaded() {
+                if (window.Seated && typeof window.Seated.init === 'function') {
+                    widgetLoading.classList.add('hidden');
+                    seatedWidget.style.display = 'block';
+                } else {
+                    setTimeout(checkSeatedLoaded, 500);
+                }
+            }
+            
+            checkSeatedLoaded();
+        });
+
+        // Handle widget errors gracefully
+        window.addEventListener('error', function(e) {
+            if (e.message && e.message.includes('seated')) {
+                const widgetLoading = document.getElementById('widget-loading');
+                widgetLoading.innerHTML = '<i class="fa fa-exclamation-triangle" style="margin-right: 10px;"></i>Error al cargar las fechas. Por favor, contacta directamente para información sobre conciertos.';
+            }
+        });
+    </script>
+</body>
+</html>
