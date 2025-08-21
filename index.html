@@ -269,6 +269,71 @@
             margin: 0 auto 35px;
         }
 
+        /* Guitar Background Section */
+.guitar-home-page-section {
+    background: url('uploads/2016/05/guitarra-inferior.jpg') center center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.poesia {
+    position: absolute;
+    z-index: 2;
+    bottom: 100px;
+    left: 200px;
+    color: white;
+    font-style: italic;
+}
+
+.poesia p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+/* Responsive adjustments for guitar section */
+@media only screen and (min-width: 767px) and (max-width: 1023px) {
+    .poesia {
+        left: 120px;
+    }
+    
+    .poesia p {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .guitar-home-page-section {
+        background-attachment: scroll;
+        min-height: 80vh;
+    }
+    
+    .poesia {
+        left: 30px;
+        bottom: 200px;
+    }
+    
+    .poesia p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 640px) {
+    .poesia {
+        left: 30px;
+        bottom: 200px;
+    }
+    
+    .poesia p {
+        font-size: 14px;
+    }
+}
         /* Album Section */
         .album-section {
             background: #f8f8f8;
@@ -861,6 +926,19 @@
         </div>
     </section>
 
+    <!-- Guitar Background Section -->
+<section class="section guitar-home-page-section">
+    <div class="poesia">
+        <p>Fue, como el grito del ayer</p>
+        <p>Como el quejío, que al viejo escuché, una vez</p>
+        <p>Lo sentí ¡ay! en mí</p>
+        <p>Y ahora, me viene al recuerdo</p>
+        <p>Aquel sonido de la pena.</p>
+        <p>El aire llega, a tu puerta</p>
+        <p>Me quema Débla, el sonido de la pena.</p>
+    </div>
+</section>
+    
     <!-- Footer -->
     <footer>
         <div class="container">
