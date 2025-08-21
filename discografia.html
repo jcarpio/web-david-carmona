@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discografía - David Carmona</title>
+    <meta name="description" content="Discografía completa de David Carmona: Tratante (1998) y Un Sueño de Locura (2017).">
+    
+    <!-- Fuentes originales -->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,600,600italic,700&subset=latin,latin-ext&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #ffffff;
+            color: #0a0a0a;
+            font-weight: 400;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+            position: relative;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .mobile-menu li {
+            margin: 20px 0;
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: #ccc;
+        }
+
+        .mobile-menu .language-selector {
+            margin-top: 40px;
+        }
+
+        .mobile-menu .language-selector a {
+            color: white;
+            font-size: 18px;
+            margin: 0 10px;
+        }
+
+        .mobile-menu .social-networks {
+            margin-top: 60px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .mobile-menu .social-networks a {
+            font-size: 30px;
+            color: white;
+        }
+
+        /* Close button */
+        .mobile-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 400;
+            letter-spacing: 6px;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #666;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-selector a {
+            text-decoration: none;
+            color: #000;
+            font-size: 12px;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 120px;
+            padding: 60px 0 100px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .page-title h1 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 48px;
+            font-weight: 600;
+            letter-spacing: 8px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            width: 94px;
+            height: 2px;
+            background: #000;
+            margin: 0 auto;
+        }
+
+        /* Album Grid */
+        .albums-grid {
+            display: grid;
+            gap: 80px;
+            margin-bottom: 60px;
+        }
+
+        /* Album Item */
+        .album-item {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 12px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .album-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+
+        .album-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 0;
+            min-height: 400px;
+        }
+
+        .album-cover {
+            position: relative;
+            overflow: hidden;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .album-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .album-item:hover .album-cover img {
+            transform: scale(1.05);
+        }
+
+        .album-info {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .album-year {
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .album-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 36px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .album-details {
+            margin-bottom: 30px;
+        }
+
+        .album-details p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .album-details strong {
+            color: #000;
+            font-weight: 600;
+        }
+
+        /* Track List */
+        .track-list {
+            margin: 30px 0;
+        }
+
+        .track-list h4 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .tracks {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .track {
+            padding: 12px 15px;
+            background: rgba(0,0,0,0.03);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .track:hover {
+            background: rgba(0,0,0,0.08);
+            transform: translateX(5px);
+        }
+
+        .track-number {
+            font-weight: 600;
+            color: #666;
+            margin-right: 10px;
+        }
+
+        .track-name {
+            font-size: 14px;
+            color: #333;
+        }
+
+        /* Streaming Links */
+        .streaming-links {
+            margin-top: 30px;
+        }
+
+        .streaming-links h4 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .links-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .streaming-link {
+            background: #000;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .streaming-link:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .streaming-link i {
+            font-size: 16px;
+        }
+
+        /* Special styling for different platforms */
+        .streaming-link.spotify {
+            background: #1db954;
+        }
+
+        .streaming-link.spotify:hover {
+            background: #1ed760;
+        }
+
+        .streaming-link.apple {
+            background: #fa233b;
+        }
+
+        .streaming-link.apple:hover {
+            background: #ff1744;
+        }
+
+        .streaming-link.youtube {
+            background: #ff0000;
+        }
+
+        .streaming-link.youtube:hover {
+            background: #ff3333;
+        }
+
+        .streaming-link.amazon {
+            background: #ff9900;
+        }
+
+        .streaming-link.amazon:hover {
+            background: #ffb84d;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .social-networks {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .social-networks a {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-networks a:hover {
+            color: #666;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .footer-copyright a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .album-content {
+                grid-template-columns: 1fr;
+            }
+
+            .album-cover {
+                height: 300px;
+            }
+
+            .album-info {
+                padding: 40px;
+            }
+
+            .tracks {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .language-selector {
+                display: none;
+            }
+
+            .page-title h1 {
+                font-size: 36px;
+                letter-spacing: 4px;
+            }
+
+            .album-title {
+                font-size: 28px;
+                letter-spacing: 2px;
+            }
+
+            .album-info {
+                padding: 30px;
+            }
+
+            .links-grid {
+                justify-content: center;
+            }
+
+            .header-content {
+                padding: 0 15px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title h1 {
+                font-size: 28px;
+                letter-spacing: 2px;
+            }
+
+            .album-title {
+                font-size: 24px;
+                letter-spacing: 1px;
+            }
+
+            .album-info {
+                padding: 25px;
+            }
+
+            .streaming-link {
+                font-size: 12px;
+                padding: 10px 16px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .album-item {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .album-item:nth-child(2) {
+            animation-delay: 0.2s;
+            animation-fill-mode: both;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">DAVID CARMONA</a>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="biografia.html">Biografía</a></li>
+                    <li><a href="conciertos.html">Conciertos</a></li>
+                    <li><a href="discografia.html" class="active">Discografía</a></li>
+                    <li><a href="videos.html">Videos</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="language-selector">
+                <a href="#" class="active">ES</a>
+                <span>|</span>
+                <a href="en/discography.html">EN</a>
+            </div>
+
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="mobile-close" id="mobile-close">
+            <i class="fa fa-times"></i>
+        </button>
+        
+        <nav>
+            <ul>
+                <li><a href="biografia.html">Biografía</a></li>
+                <li><a href="conciertos.html">Conciertos</a></li>
+                <li><a href="discografia.html">Discografía</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="language-selector">
+            <a href="#" class="active">ES</a>
+            <span>|</span>
+            <a href="en/discography.html">EN</a>
+        </div>
+
+        <ul class="social-networks">
+            <li><a href="https://www.facebook.com/DCarmonaOficial" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/dcarmonaoficial" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://www.youtube.com/channel/UCMC6kwDVAWH22zDf7l8CcyQ" target="_blank"><i class="fa fa-youtube-square"></i></a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Title -->
+            <div class="page-title">
+                <h1>Discografía</h1>
+                <div class="divider"></div>
+            </div>
+
+            <!-- Albums Grid -->
+            <div class="albums-grid">
+                
+                <!-- Un Sueño de Locura (2017) -->
+                <div class="album-item">
+                    <div class="album-content">
+                        <div class="album-cover">
+                            <img src="uploads/2016/05/David-Carmona-portada.jpg" alt="Un Sueño de Locura - David Carmona">
+                        </div>
+                        <div class="album-info">
+                            <div class="album-year">2017</div>
+                            <h2 class="album-title">Un Sueño de Locura</h2>
+                            
+                            <div class="album-details">
+                                <p><strong>Sello:</strong> Independiente</p>
+                                <p><strong>Formato:</strong> CD, Digital</p>
+                                <p><strong>Duración:</strong> 43 minutos</p>
+                                <p><strong>Géneros:</strong> Flamenco, Latin, Folk</p>
+                                <p><strong>Estilos:</strong> Tangos, Bulerías, Soleá, Colombiana</p>
+                            </div>
+
+                            <div class="track-list">
+                                <h4>Lista de Temas</h4>
+                                <div class="tracks">
+                                    <div class="track">
+                                        <span class="track-number">1.</span>
+                                        <span class="track-name">Bulería del Mixolidio</span>
+                                    </div>
+                                    <div class="track">
+                                        <span class="track-number">2.</span>
+                                        <span class="track-name">Rincón de la Soleá</span>
+                                    </div>
+                                    <div class="track">
+                                        <span class="track-number">3.</span>
+                                        <span class="track-name">Desgranar (con Estrella Morente)</span>
+                                    </div>
+                                    <div class="track">
+                                        <span class="track-number">4.</span>
+                                        <span class="track-name">Búscate por Ahí...</span>
+                                    </div>
+                                    <div class="track">
+                                        <span class="track-number">5.</span>
+                                        <span class="track-name">De Sanlúcar al Tesorillo (con Carmen Molina)</span>
+                                    </div>
+                                    <div class="track">
+                                        <span class="track-number">6.</span>
+                                        <span class="track-name">Motivo Impertinente</span>
+                                    </div>
+                                    <div class="track">
+                                        <span class="track-number">7.</span>
+                                        <span class="track-name">Obsesión</span>
+                                    </div>
+                                    <div class="track">
+                                        <span class="track-number">8.</span>
+                                        <span class="track-name">El Detalle (con Arcángel)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="streaming-links">
+                                <h4>Escúchalo en</h4>
+                                <div class="links-grid">
+                                    <a href="https://open.spotify.com/intl-es/album/1F4HGfysfy02uBuBB5sGDM" target="_blank" class="streaming-link spotify">
+                                        <i class="fa fa-spotify"></i>
+                                        Spotify
+                                    </a>
+                                    <a href="https://music.apple.com/es/album/un-sue%C3%B1o-de-locura/1204858810" target="_blank" class="streaming-link apple">
+                                        <i class="fa fa-apple"></i>
+                                        Apple Music
+                                    </a>
+                                    <a href="https://music.youtube.com/playlist?list=OLAK5uy_m9HXJnEBfE5IorG4S76VLB9sFTAh7NYcE" target="_blank" class="streaming-link youtube">
+                                        <i class="fa fa-youtube"></i>
+                                        YouTube Music
+                                    </a>
+                                    <a href="https://music.amazon.es/albums/B06X3SLDJZ" target="_blank" class="streaming-link amazon">
+                                        <i class="fa fa-amazon"></i>
+                                        Amazon Music
+                                    </a>
+                                    <a href="https://www.deezer.com/es/album/15335869" target="_blank" class="streaming-link">
+                                        <i class="fa fa-music"></i>
+                                        Deezer
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tratante (1998) -->
+                <div class="album-item">
+                    <div class="album-content">
+                        <div class="album-cover">
+                            <img src="uploads/albums/tratante-cover.jpg" alt="Tratante - David Carmona" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div style="display:none; flex-direction:column; align-items:center; justify-content:center; height:100%; background:#f0f0f0; color:#666; text-align:center; padding:20px;">
+                                <i class="fa fa-music" style="font-size:48px; margin-bottom:20px;"></i>
+                                <h3 style="font-family:'Josefin Sans',sans-serif; font-size:24px; font-weight:600;">TRATANTE</h3>
+                                <p style="font-size:14px; margin-top:10px;">David Carmona</p>
+                            </div>
+                        </div>
+                        <div class="album-info">
+                            <div class="album-year">1998</div>
+                            <h2 class="album-title">Tratante</h2>
+                            
+                            <div class="album-details">
+                                <p><strong>Sello:</strong> Ayuntamiento de Granada</p>
+                                <p><strong>Catálogo:</strong> JASS 007CS/98</p>
+                                <p><strong>Formato:</strong> CD, Cassette</p>
+                                <p><strong>País:</strong> España</p>
+                                <p><strong>Géneros:</strong> Latin, Folk, World & Country</p>
+                                <p><strong>Estilos:</strong> Flamenco, Rumba, Tango</p>
+                            </div>
+
+                            <div class="track-list">
+                                <h4>Lista de Temas</h4>
+                                <div class="tracks">
+                                    <div class="track">
+                                        <span class="track-number">A1.</span>
+                                        <span class="track-name">Tratante (Tangos)</span>
+                                    </div>
+                                    <div class="track">
+                                        <span class="track-number">A2.</span>
+                                        <span class="track-name">Pureza (Bulerías)</span>
+                                    </div>
+                                    <div class="track">
+                                        <span class="track-number">A3.</span>
+                                        <span class="track-name">Santa Fe (Tangos)</span>
+                                    </div>
+                                    <div class="track">
+                                        <span class="track-number">A4.</span>
+                                        <span class="track-name">Flameco Soy (Soleá)</span>
+                                    </div>
+                                    <div class="track">
+                                        <span class="track-number">B1.</span>
+                                        <span class="track-name">Gallardó (Rumbas)</span>
+                                    </div>
+                                    <div class="track">
+                                        <span class="track-number">B2.</span>
+                                        <span class="track-name">Tamara (Bulerías)</span>
+                                    </div>
+                                    <div class="track">
+                                        <span class="track-number">B3.</span>
+                                        <span class="track-name">Tierra (Tango)</span>
+                                    </div>
+                                    <div class="track">
+                                        <span class="track-number">B4.</span>
+                                        <span class="track-name">A Mi Aire (Colombiana)</span>
+                                    </div>
+                                    <div class="track">
+                                        <span class="track-number">B5.</span>
+                                        <span class="track-name">Homenaje Al Chino (Rumbas)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="streaming-links">
+                                <h4>Escúchalo en</h4>
+                                <div class="links-grid">
+                                    <a href="https://www.youtube.com/watch?v=R-FQegxG-CI" target="_blank" class="streaming-link youtube">
+                                        <i class="fa fa-youtube"></i>
+                                        YouTube (Álbum Completo)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <ul class="social-networks">
+                <li><a href="https://www.facebook.com/DCarmonaOficial" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/dcarmonaoficial" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCMC6kwDVAWH22zDf7l8CcyQ" target="_blank"><i class="fa fa-youtube-square"></i></a></li>
+            </ul>
+            
+            <div class="footer-copyright">
+                <p>Copyright © 2024 David Carmona. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll header effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Mobile menu functionality
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileClose = document.getElementById('mobile-close');
+        const body = document.body;
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            body.style.overflow = 'auto';
+        }
+
+        menuToggle.addEventListener('click', openMobileMenu);
+        mobileClose.addEventListener('click', closeMobileMenu);
+
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        mobileMenu.addEventListener('click', function(e) {
+            if (e.target === mobileMenu) {
+                closeMobileMenu();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>
