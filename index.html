@@ -311,12 +311,77 @@
             justify-content: center;
         }
 
-        .track-item {
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
+        /* Audio Player Styles */
+        .audio-player {
+            background: #f8f8f8;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .play-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #000;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+
+        .track-info {
+            flex: 1;
+        }
+
+        .track-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .track-artist {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .progress-container {
+            position: relative;
+            height: 6px;
+            background: #ddd;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 15px 0;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #000;
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        .time-display {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            font-size: 12px;
+            color: #666;
         }
 
         .track-title {
@@ -408,9 +473,14 @@
             aspect-ratio: 16/9;
             background: #333;
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .video-placeholder {
@@ -668,8 +738,36 @@
                 </div>
                 <div class="playlist">
                     <h3>Un Sueño de Locura</h3>
-                    <div class="track-item">
-                        <span class="track-title">Desgranar (Tangos) feat. Estrella Morente</span>
+                    
+                    <!-- Audio Player -->
+                    <div class="audio-player">
+                        <div class="audio-controls">
+                            <button class="play-btn" id="playBtn">
+                                <i class="fa fa-play" id="playIcon"></i>
+                            </button>
+                            <div class="track-info">
+                                <div class="track-name">Desgranar (Tangos)</div>
+                                <div class="track-artist">feat. Estrella Morente</div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-container" id="progressContainer">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+                        
+                        <div class="time-display">
+                            <span id="currentTime">0:00</span>
+                            <span id="totalTime">0:00</span>
+                        </div>
+                        
+                        <audio id="audioPlayer" preload="metadata">
+                            <source src="uploads/2016/05/Energy-Trap.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                    
+                    <div class="track-item" style="padding: 15px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+                        <span class="track-title" style="font-weight: 600; letter-spacing: 1px;">Desgranar (Tangos) feat. Estrella Morente</span>
                         <a href="#" class="buy-button">Comprar</a>
                     </div>
                 </div>
@@ -711,10 +809,12 @@
     <section class="section video-section">
         <div class="container">
             <div class="video-container">
-                <div class="video-placeholder">
-                    Video: Un Sueño de Locura
-                    <br><small>Aquí iría el video embebido de YouTube</small>
-                </div>
+                <iframe src="https://www.youtube.com/embed/_ZdhhA502xU?rel=0&showinfo=0&modestbranding=1" 
+                        frameborder="0" 
+                        allow="autoplay; encrypted-media" 
+                        allowfullscreen
+                        title="David Carmona - Un Sueño de Locura">
+                </iframe>
             </div>
         </div>
     </section>
@@ -784,43 +884,107 @@
 
         function openMobileMenu() {
             mobileMenu.classList.add('active');
-            body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            body.style.overflow = 'hidden';
         }
 
         function closeMobileMenu() {
             mobileMenu.classList.remove('active');
-            body.style.overflow = 'auto'; // Restore scrolling
+            body.style.overflow = 'auto';
         }
 
-        // Event listeners
         menuToggle.addEventListener('click', openMobileMenu);
         mobileClose.addEventListener('click', closeMobileMenu);
 
-        // Close menu when clicking on a link
         const mobileMenuLinks = mobileMenu.querySelectorAll('a');
         mobileMenuLinks.forEach(link => {
             link.addEventListener('click', closeMobileMenu);
         });
 
-        // Close menu when clicking outside
         mobileMenu.addEventListener('click', function(e) {
             if (e.target === mobileMenu) {
                 closeMobileMenu();
             }
         });
 
-        // Close menu on escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
                 closeMobileMenu();
             }
         });
 
-        // Handle window resize
         window.addEventListener('resize', function() {
             if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
                 closeMobileMenu();
             }
+        });
+
+        // Audio Player functionality
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playBtn = document.getElementById('playBtn');
+        const playIcon = document.getElementById('playIcon');
+        const progressBar = document.getElementById('progressBar');
+        const progressContainer = document.getElementById('progressContainer');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const totalTimeDisplay = document.getElementById('totalTime');
+
+        let isPlaying = false;
+
+        // Play/Pause functionality
+        playBtn.addEventListener('click', function() {
+            if (isPlaying) {
+                audioPlayer.pause();
+            } else {
+                audioPlayer.play();
+            }
+        });
+
+        audioPlayer.addEventListener('play', function() {
+            isPlaying = true;
+            playIcon.className = 'fa fa-pause';
+        });
+
+        audioPlayer.addEventListener('pause', function() {
+            isPlaying = false;
+            playIcon.className = 'fa fa-play';
+        });
+
+        // Update progress bar
+        audioPlayer.addEventListener('timeupdate', function() {
+            const duration = audioPlayer.duration;
+            const currentTime = audioPlayer.currentTime;
+            
+            if (duration) {
+                const progress = (currentTime / duration) * 100;
+                progressBar.style.width = progress + '%';
+                
+                // Update time displays
+                currentTimeDisplay.textContent = formatTime(currentTime);
+                totalTimeDisplay.textContent = formatTime(duration);
+            }
+        });
+
+        // Click on progress bar to seek
+        progressContainer.addEventListener('click', function(e) {
+            const duration = audioPlayer.duration;
+            if (duration) {
+                const rect = progressContainer.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const width = rect.width;
+                const newTime = (clickX / width) * duration;
+                audioPlayer.currentTime = newTime;
+            }
+        });
+
+        // Format time helper function
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            return minutes + ':' + (remainingSeconds < 10 ? '0' : '') + remainingSeconds;
+        }
+
+        // Load metadata
+        audioPlayer.addEventListener('loadedmetadata', function() {
+            totalTimeDisplay.textContent = formatTime(audioPlayer.duration);
         });
     </script>
 </body>
