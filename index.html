@@ -921,6 +921,42 @@
             <h2 style="text-align: center; font-size: 72px; letter-spacing: 10px; margin-bottom: 60px;">UN SUEÑO DE LOCURA</h2>
         </div>
     </section>
+
+<!-- Reemplaza esta línea en tu código HTML: -->
+
+<!-- ANTES: -->
+<!--
+<iframe width="1144" 
+        height="644" 
+        src="https://www.youtube.com/embed/_ZdhhA502xU?feature=oembed&modestbranding=1&rel=0&showinfo=0&controls=1" 
+        frameborder="0" 
+        allow="autoplay; encrypted-media" 
+        allowfullscreen>
+</iframe>
+-->
+
+<!-- DESPUÉS: -->
+<iframe width="1144" 
+        height="644" 
+        src="https://www.youtube.com/embed/_ZdhhA502xU?modestbranding=1&rel=0&showinfo=0&controls=1&fs=0&iv_load_policy=3&disablekb=1" 
+        frameborder="0" 
+        allow="autoplay; encrypted-media" 
+        allowfullscreen>
+</iframe>
+
+<!-- 
+Parámetros añadidos para minimizar enlaces:
+- modestbranding=1: Reduce la marca de YouTube
+- rel=0: No muestra videos relacionados al final
+- showinfo=0: Oculta información del video (título, etc.)
+- controls=1: Mantiene los controles básicos
+- fs=0: Desactiva el botón de pantalla completa (elimina un posible enlace)
+- iv_load_policy=3: Desactiva anotaciones interactivas
+- disablekb=1: Desactiva controles de teclado que podrían mostrar información
+
+Nota: YouTube ha limitado algunos de estos parámetros en versiones recientes,
+pero esta combinación debería minimizar significativamente los enlaces visibles.
+-->
     
 <!-- Video Section -->
 <section class="section video-section">
