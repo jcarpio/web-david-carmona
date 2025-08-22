@@ -471,44 +471,48 @@
             letter-spacing: 1px;
         }
 
-        .buy-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        /* Estilos mejorados para los botones de streaming */
-        .streaming-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+        .streaming-link {
             background: #000;
             color: white;
-            border: none;
             padding: 12px 20px;
             border-radius: 8px;
-            cursor: pointer;
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
             letter-spacing: 1px;
             transition: all 0.3s ease;
-            min-width: 160px;
-            justify-content: center;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .streaming-button:hover {
+        .streaming-link:hover {
             background: #333;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
-        .streaming-button img {
-            width: 20px;
-            height: 20px;
-            filter: brightness(0) invert(1); /* Convierte el logo a blanco */
+        .links-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .buy-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .buy-links img {
+            height: 40px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .buy-links img:hover {
+            opacity: 1;
         }
 
         /* Quote Section */
@@ -706,11 +710,6 @@
             .buy-links {
                 flex-direction: column;
                 align-items: center;
-                gap: 15px;
-            }
-
-            .streaming-button {
-                width: 200px;
             }
 
             .about-album .section-title {
@@ -746,12 +745,6 @@
             .quote-text {
                 font-size: 16px;
                 padding: 0 10px;
-            }
-
-            .streaming-button {
-                min-width: 180px;
-                font-size: 12px;
-                padding: 10px 16px;
             }
         }
     </style>
@@ -878,34 +871,244 @@
                 </div>
             </div>
 
-            <div class="buy-links">
-                <a href="https://music.apple.com/es/album/un-sue%C3%B1o-de-locura/1204858810" target="_blank" class="streaming-button">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                    </svg>
-                    iTunes
-                </a>
-                <a href="https://music.amazon.es/albums/B06X3SLDJZ?agent=googleAssistant&do=play&explicit=false&ref=dmm_seo_google_gkp_albums&referrer=https%3A%2F%2Fwww.google.com%2F" target="_blank" class="streaming-button">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12.76 2.61l-.03-.03c.03 0 .06-.01.09-.01-.02.01-.04.02-.06.04zm5.82 19.44c-.81.7-1.99.59-3.13-.04-1.24-.69-2.37-.67-3.68.04-1.68.91-2.57.73-3.56-.04-5.78-5.82-5.15-14.75 1.38-19.64 2.29-1.71 5.54-1.55 6.68.08 1.95-.08 3.86.96 4.82 2.56.23.38.07.88-.35 1.05-.39.16-.86-.01-1.02-.4-.84-1.99-3.45-2.31-4.83-.59-.09.11-.23.16-.36.16s-.27-.05-.36-.16c-1.38-1.72-3.99-1.4-4.83.59-.99 2.35-.45 5.26 1.28 6.98.85.85 1.28 1.83 1.28 2.88v.01c0 .42-.32.76-.73.79-.43.03-.79-.29-.82-.72-.02-.82-.32-1.63-.92-2.23-1.24-1.24-1.68-3.26-.98-5.07 1.17-3.01 4.8-3.47 6.71-.84 1.91-2.63 5.54-2.17 6.71.84.7 1.81.26 3.83-.98 5.07z"/>
-                    </svg>
-                    Amazon Music
-                </a>
-                <a href="https://open.spotify.com/intl-es/album/1F4HGfysfy02uBuBB5sGDM" target="_blank" class="streaming-button">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.859-.179-.98-.597-.121-.418.18-.86.599-.98 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02l.022.138zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-.78.599-1.2.3z"/>
-                    </svg>
-                    Spotify
-                </a>
-                <a href="https://music.youtube.com/playlist?list=OLAK5uy_m9HXJnEBfE5IorG4S76VLB9sFTAh7NYcE" target="_blank" class="streaming-button">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
-                    YouTube Music
-                </a>
-                <a href="https://www.deezer.com/es/album/15335869" target="_blank" class="streaming-button">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M24 12.002c0 6.628-5.374 12.002-12 12.002-6.628 0-12.002-5.374-12.002-12.002C-.002 5.372 5.372-.002 12-.002c6.626 0 12 5.374 12 12.004zM12 20.126c4.473 0 8.124-3.651 8.124-8.124S16.473 3.876 12 3.876 3.876 7.527 3.876 12s3.651 8.126 8.124 8.126zm3.97-8.126L12 8.03 8.03 12 12 15.97 15.97 12z"/>
-                    </svg>
-                    Deezer
-                </a>
+                    <div class="streaming-link">
+                                <h4>Escúchalo en</h4>
+                                <div class="links-grid">
+                                    <a href="https://open.spotify.com/intl-es/album/1F4HGfysfy02uBuBB5sGDM" target="_blank" class="streaming-link">
+                                        <i class="fa fa-spotify"></i>
+                                        Spotify
+                                    </a>
+                                    <a href="https://music.apple.com/es/album/un-sue%C3%B1o-de-locura/1204858810" target="_blank" class="streaming-link">
+                                        <i class="fa fa-apple"></i>
+                                        Apple Music
+                                    </a>
+                                    <a href="https://music.youtube.com/playlist?list=OLAK5uy_m9HXJnEBfE5IorG4S76VLB9sFTAh7NYcE" target="_blank" class="streaming-link">
+                                        <i class="fa fa-youtube"></i>
+                                        YouTube Music
+                                    </a>
+                                    <a href="https://music.amazon.es/albums/B06X3SLDJZ" target="_blank" class="streaming-link">
+                                        <i class="fa fa-amazon"></i>
+                                        Amazon Music
+                                    </a>
+                                    <a href="https://www.deezer.com/es/album/15335869" target="_blank" class="streaming-link">
+                                        <i class="fa fa-music"></i>
+                                        Deezer
+                                    </a>
+                                </div>
+                            </div>
+
+        
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="section quote-section">
+        <div class="container">
+            <div class="divider" style="background: white; margin-bottom: 30px;"></div>
+            <p class="quote-text">
+                ".. es como mi hijo adoptivo, mi único sucesor. Él es la verdadera próxima generación de guitarristas."
+            </p>
+            <p class="quote-author">Manolo Sanlúcar</p>
+        </div>
+    </section>
+
+    <!-- New Video Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">VIDEO</h2>
+            <div class="divider"></div>
+            <h3 style="text-align: center; margin-bottom: 20px;">del álbum</h3>
+            <h2 style="text-align: center; font-size: 72px; letter-spacing: 10px; margin-bottom: 60px;">UN SUEÑO DE LOCURA</h2>
+        </div>
+    </section>
+
+<!-- Video Section -->
+<section class="section video-section">
+    <div class="container">
+        <div class="video-container">
+            <iframe width="1144" 
+                    height="644" 
+                    src="https://www.youtube.com/embed/_ZdhhA502xU?feature=oembed&modestbranding=1&rel=0&showinfo=0&controls=1" 
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</section>
+
+    <!-- About Album Section -->
+    <section class="section about-album">
+        <div class="container">
+            <div class="divider" style="background: white; margin-bottom: 35px;"></div>
+            <h2 class="section-title">SOBRE EL ÁLBUM</h2>
+            
+            <div class="about-text">
+                <h5>
+                    Cada canción del álbum tiene su propia historia, su propia "locura" experimentada. Gané experiencia con cada una de ellas. Dejé ideas musicales en el camino, que dieron lugar a otras nuevas. Sufrí la angustia del vacío, de no crear nada, de carecer de ideas; y, por el contrario, sentí esa "gracia divina" de haber encontrado un motivo con algo de interés, que pude desarrollar. Fueron experiencias, recuerdos...
+                </h5>
+                <h5>
+                    Así, mirando hacia atrás, después de todo lo trabajado, aprendido y vivido puedo decir que esto no fue un simple sueño, esto es y me temo que seguirá siendo:
+                </h5>
+                <h5>
+                    "Un sueño de locura"
+                </h5>
+                <h5 class="author-name">
+                    David Carmona
+                </h5>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guitar Background Section -->
+<section class="section guitar-home-page-section">
+    <div class="poesia">
+        <p>Fue, como el grito del ayer</p>
+        <p>Como el quejío, que al viejo escuché, una vez</p>
+        <p>Lo sentí ¡ay! en mí</p>
+        <p>Y ahora, me viene al recuerdo</p>
+        <p>Aquel sonido de la pena.</p>
+        <p>El aire llega, a tu puerta</p>
+        <p>Me quema Débla, el sonido de la pena.</p>
+    </div>
+</section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <ul class="social-networks">
+                <li><a href="https://www.facebook.com/DCarmonaOficial" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/dcarmonaoficial" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCMC6kwDVAWH22zDf7l8CcyQ" target="_blank"><i class="fa fa-youtube-square"></i></a></li>
+            </ul>
+            
+            <div class="footer-copyright">
+                <p>Copyright © 2024 David Carmona. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll header effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Mobile menu functionality
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileClose = document.getElementById('mobile-close');
+        const body = document.body;
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            body.style.overflow = 'auto';
+        }
+
+        menuToggle.addEventListener('click', openMobileMenu);
+        mobileClose.addEventListener('click', closeMobileMenu);
+
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        mobileMenu.addEventListener('click', function(e) {
+            if (e.target === mobileMenu) {
+                closeMobileMenu();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Audio Player functionality
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playBtn = document.getElementById('playBtn');
+        const playIcon = document.getElementById('playIcon');
+        const progressBar = document.getElementById('progressBar');
+        const progressContainer = document.getElementById('progressContainer');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const totalTimeDisplay = document.getElementById('totalTime');
+
+        let isPlaying = false;
+
+        // Play/Pause functionality
+        playBtn.addEventListener('click', function() {
+            if (isPlaying) {
+                audioPlayer.pause();
+            } else {
+                audioPlayer.play();
+            }
+        });
+
+        audioPlayer.addEventListener('play', function() {
+            isPlaying = true;
+            playIcon.className = 'fa fa-pause';
+        });
+
+        audioPlayer.addEventListener('pause', function() {
+            isPlaying = false;
+            playIcon.className = 'fa fa-play';
+        });
+
+        // Update progress bar
+        audioPlayer.addEventListener('timeupdate', function() {
+            const duration = audioPlayer.duration;
+            const currentTime = audioPlayer.currentTime;
+            
+            if (duration) {
+                const progress = (currentTime / duration) * 100;
+                progressBar.style.width = progress + '%';
+                
+                // Update time displays
+                currentTimeDisplay.textContent = formatTime(currentTime);
+                totalTimeDisplay.textContent = formatTime(duration);
+            }
+        });
+
+        // Click on progress bar to seek
+        progressContainer.addEventListener('click', function(e) {
+            const duration = audioPlayer.duration;
+            if (duration) {
+                const rect = progressContainer.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const width = rect.width;
+                const newTime = (clickX / width) * duration;
+                audioPlayer.currentTime = newTime;
+            }
+        });
+
+        // Format time helper function
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            return minutes + ':' + (remainingSeconds < 10 ? '0' : '') + remainingSeconds;
+        }
+
+        // Load metadata
+        audioPlayer.addEventListener('loadedmetadata', function() {
+            totalTimeDisplay.textContent = formatTime(audioPlayer.duration);
+        });
+    </script>
+</body>
+</html>
