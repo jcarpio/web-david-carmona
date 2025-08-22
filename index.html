@@ -921,7 +921,41 @@
             <h2 style="text-align: center; font-size: 72px; letter-spacing: 10px; margin-bottom: 60px;">UN SUEÑO DE LOCURA</h2>
         </div>
     </section>
-
+    
+<!-- Video Section -->
+<section class="section video-section">
+    <div class="container">
+        <div class="video-container">
+            <!-- Video Preview con imagen personalizada -->
+            <div class="video-preview" id="videoPreview">
+                <img src="uploads/2016/05/video-preview.jpg" 
+                     alt="Un Sueño de Locura - Video Preview"
+                     onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 1280 720\' fill=\'%23000\'><rect width=\'1280\' height=\'720\' fill=\'%23000\'/><text x=\'640\' y=\'360\' fill=\'white\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'48\'>UN SUEÑO DE LOCURA</text><text x=\'640\' y=\'420\' fill=\'%23ccc\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'24\'>David Carmona</text></svg>'">
+                <div class="play-overlay">
+                    <div class="play-button-large">
+                        <i class="fa fa-play"></i>
+                    </div>
+                </div>
+                <div class="video-info-overlay">
+                    <h3>Un Sueño de Locura</h3>
+                    <p>Video Oficial</p>
+                </div>
+            </div>
+            
+            <!-- YouTube iframe (inicialmente oculto) -->
+            <iframe id="youtubeVideo"
+                    width="1144" 
+                    height="644" 
+                    src=""
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen
+                    style="display: none;">
+            </iframe>
+        </div>
+    </div>
+</section>
+    
 <!-- Video Section -->
 <section class="section video-section">
     <div class="container">
