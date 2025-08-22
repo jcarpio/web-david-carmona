@@ -297,6 +297,28 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
         }
 
+        /* Estilos para el botón de seguir de Seated */
+        .seated-follow-button {
+            background: #000 !important;
+            color: white !important;
+            border: none !important;
+            padding: 12px 24px !important;
+            border-radius: 8px !important;
+            font-family: 'Open Sans', sans-serif !important;
+            font-weight: 600 !important;
+            letter-spacing: 1px !important;
+            text-transform: uppercase !important;
+            transition: all 0.3s ease !important;
+            cursor: pointer !important;
+            margin-top: 20px !important;
+        }
+
+        .seated-follow-button:hover {
+            background: #333 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+        }
+
         /* Contact Info Section */
         .contact-info {
             background: #000;
@@ -567,10 +589,16 @@
                         Cargando fechas de conciertos...
                     </div>
                     
-                    <!-- Seated Widget -->
-
-<div id="seated-55fdf2c0" data-artist-id="52e62374-7254-41c2-9829-ef229d8067c4" data-follow-button-position="bottom"
-data-follow-button-text="Seguir a David" data-css-version="3"></div><script src="https://widget.seated.com/app.js"></script>
+                    <!-- Seated Widget - Configuración corregida -->
+                    <div id="seated-55fdf2c0" 
+                         data-artist-id="52e62374-7254-41c2-9829-ef229d8067c4" 
+                         data-follow-button="true"
+                         data-follow-button-position="bottom"
+                         data-follow-button-text="Seguir a David Carmona" 
+                         data-css-version="3"
+                         style="display: none;">
+                    </div>
+                </div>
             </div>
 
             <!-- Contact Info Section -->
@@ -615,7 +643,7 @@ data-follow-button-text="Seguir a David" data-css-version="3"></div><script src=
         </div>
     </footer>
 
-    <!-- Seated Widget Script -->
+    <!-- Seated Widget Script - Solo una carga -->
     <script src="https://widget.seated.com/app.js"></script>
 
     <script>
@@ -671,37 +699,80 @@ data-follow-button-text="Seguir a David" data-css-version="3"></div><script src=
             }
         });
 
-        // Seated widget loading management
+        // Seated widget loading management - CORREGIDO
         document.addEventListener('DOMContentLoaded', function() {
             const widgetLoading = document.getElementById('widget-loading');
-            const seatedWidget = document.getElementById('seated-david-carmona');
+            const seatedWidget = document.getElementById('seated-55fdf2c0'); // ID corregido
             
-            // Simulate widget loading (you may need to adjust this based on Seated's actual loading events)
-            setTimeout(function() {
-                widgetLoading.classList.add('hidden');
-                seatedWidget.style.display = 'block';
-            }, 2000);
-
-            // Check if Seated widget has loaded
+            // Función para verificar si el widget se ha cargado
             function checkSeatedLoaded() {
-                if (window.Seated && typeof window.Seated.init === 'function') {
-                    widgetLoading.classList.add('hidden');
-                    seatedWidget.style.display = 'block';
+                // Verificar si el script de Seated se ha cargado
+                if (typeof window.Seated !== 'undefined') {
+                    console.log('Seated script cargado correctamente');
+                    
+                    // Esperar un poco más para que el widget se renderice
+                    setTimeout(() => {
+                        widgetLoading.classList.add('hidden');
+                        seatedWidget.style.display = 'block';
+                        
+                        // Debug: Verificar el contenido del widget
+                        console.log('Widget HTML:', seatedWidget.innerHTML);
+                        console.log('Widget attributes:', seatedWidget.dataset);
+                    }, 2000);
                 } else {
+                    // Reintentar después de 500ms
                     setTimeout(checkSeatedLoaded, 500);
                 }
             }
             
+            // Iniciar la verificación
             checkSeatedLoaded();
+
+            // Función adicional para debug
+            setTimeout(() => {
+                console.log('Estado del widget después de 5 segundos:');
+                console.log('- Elemento widget:', seatedWidget);
+                console.log('- Contenido HTML:', seatedWidget ? seatedWidget.innerHTML : 'No encontrado');
+                console.log('- Objeto Seated global:', window.Seated);
+                
+                // Si el widget sigue vacío, mostrar información de debug
+                if (seatedWidget && seatedWidget.innerHTML.trim() === '') {
+                    console.warn('El widget está vacío. Posibles causas:');
+                    console.warn('1. Artist ID incorrecto');
+                    console.warn('2. Problemas de conectividad con Seated');
+                    console.warn('3. Configuración incorrecta del widget');
+                    
+                    // Mostrar mensaje de error al usuario
+                    widgetLoading.innerHTML = '<i class="fa fa-exclamation-triangle" style="margin-right: 10px;"></i>No se pudieron cargar las fechas de conciertos. Contacta directamente para información.';
+                    widgetLoading.classList.remove('hidden');
+                }
+            }, 5000);
         });
 
         // Handle widget errors gracefully
         window.addEventListener('error', function(e) {
-            if (e.message && e.message.includes('seated')) {
+            console.error('Error detectado:', e);
+            if (e.message && (e.message.includes('seated') || e.message.includes('Seated'))) {
                 const widgetLoading = document.getElementById('widget-loading');
                 widgetLoading.innerHTML = '<i class="fa fa-exclamation-triangle" style="margin-right: 10px;"></i>Error al cargar las fechas. Por favor, contacta directamente para información sobre conciertos.';
+                widgetLoading.classList.remove('hidden');
             }
         });
+
+        // Función adicional para forzar la inicialización del widget si es necesario
+        function forceSeatedInit() {
+            if (window.Seated && typeof window.Seated.init === 'function') {
+                try {
+                    window.Seated.init();
+                    console.log('Seated inicializado manualmente');
+                } catch (error) {
+                    console.error('Error al inicializar Seated manualmente:', error);
+                }
+            }
+        }
+
+        // Intentar inicialización manual después de 3 segundos
+        setTimeout(forceSeatedInit, 3000);
     </script>
 </body>
 </html>
