@@ -471,6 +471,27 @@
             letter-spacing: 1px;
         }
 
+        .streaming-link {
+            background: #000;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .streaming-link:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
         .buy-links {
             display: flex;
             justify-content: center;
@@ -843,6 +864,32 @@
                     </div>
                 </div>
             </div>
+
+                    <div class="streaming-links">
+                                <h4>Escúchalo en</h4>
+                                <div class="links-grid">
+                                    <a href="https://open.spotify.com/intl-es/album/1F4HGfysfy02uBuBB5sGDM" target="_blank" class="streaming-link">
+                                        <i class="fa fa-spotify"></i>
+                                        Spotify
+                                    </a>
+                                    <a href="https://music.apple.com/es/album/un-sue%C3%B1o-de-locura/1204858810" target="_blank" class="streaming-link">
+                                        <i class="fa fa-apple"></i>
+                                        Apple Music
+                                    </a>
+                                    <a href="https://music.youtube.com/playlist?list=OLAK5uy_m9HXJnEBfE5IorG4S76VLB9sFTAh7NYcE" target="_blank" class="streaming-link">
+                                        <i class="fa fa-youtube"></i>
+                                        YouTube Music
+                                    </a>
+                                    <a href="https://music.amazon.es/albums/B06X3SLDJZ" target="_blank" class="streaming-link">
+                                        <i class="fa fa-amazon"></i>
+                                        Amazon Music
+                                    </a>
+                                    <a href="https://www.deezer.com/es/album/15335869" target="_blank" class="streaming-link">
+                                        <i class="fa fa-music"></i>
+                                        Deezer
+                                    </a>
+                                </div>
+                            </div>
 
             <div class="buy-links">
                 <a href="https://music.apple.com/es/album/un-sue%C3%B1o-de-locura/1204858810" target="_blank">
