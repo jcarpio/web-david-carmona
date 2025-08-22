@@ -297,6 +297,28 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
         }
 
+        /* Estilos para el botón de seguir de Seated */
+        .seated-follow-button {
+            background: #000 !important;
+            color: white !important;
+            border: none !important;
+            padding: 12px 24px !important;
+            border-radius: 8px !important;
+            font-family: 'Open Sans', sans-serif !important;
+            font-weight: 600 !important;
+            letter-spacing: 1px !important;
+            text-transform: uppercase !important;
+            transition: all 0.3s ease !important;
+            cursor: pointer !important;
+            margin-top: 20px !important;
+        }
+
+        .seated-follow-button:hover {
+            background: #333 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+        }
+
         /* Contact Info Section */
         .contact-info {
             background: #000;
@@ -568,9 +590,9 @@
                     </div>
                     
                     <!-- Seated Widget -->
-
-<div id="seated-55fdf2c0" data-artist-id="52e62374-7254-41c2-9829-ef229d8067c4" data-follow-button-position="bottom"
+                    <div id="seated-55fdf2c0" data-artist-id="52e62374-7254-41c2-9829-ef229d8067c4" data-follow-button="true" data-follow-button-position="bottom"
 data-follow-button-text="Seguir a David" data-css-version="3"></div><script src="https://widget.seated.com/app.js"></script>
+                </div>
             </div>
 
             <!-- Contact Info Section -->
@@ -615,7 +637,7 @@ data-follow-button-text="Seguir a David" data-css-version="3"></div><script src=
         </div>
     </footer>
 
-    <!-- Seated Widget Script -->
+    <!-- Seated Widget Script - Solo una carga -->
     <script src="https://widget.seated.com/app.js"></script>
 
     <script>
@@ -674,19 +696,23 @@ data-follow-button-text="Seguir a David" data-css-version="3"></div><script src=
         // Seated widget loading management
         document.addEventListener('DOMContentLoaded', function() {
             const widgetLoading = document.getElementById('widget-loading');
-            const seatedWidget = document.getElementById('seated-david-carmona');
+            const seatedWidget = document.getElementById('seated-55fdf2c0');
             
             // Simulate widget loading (you may need to adjust this based on Seated's actual loading events)
             setTimeout(function() {
                 widgetLoading.classList.add('hidden');
-                seatedWidget.style.display = 'block';
+                if (seatedWidget) {
+                    seatedWidget.style.display = 'block';
+                }
             }, 2000);
 
             // Check if Seated widget has loaded
             function checkSeatedLoaded() {
                 if (window.Seated && typeof window.Seated.init === 'function') {
                     widgetLoading.classList.add('hidden');
-                    seatedWidget.style.display = 'block';
+                    if (seatedWidget) {
+                        seatedWidget.style.display = 'block';
+                    }
                 } else {
                     setTimeout(checkSeatedLoaded, 500);
                 }
