@@ -46,3 +46,12 @@ Quitar enlace de Escuchar en YouTube
 
   8.1 Quitar primer video de Tele5
 
+9. Fotos
+La primera foto aparece la cabeza cortada. Arreglarlo!
+Quitamos la ultima foto que aparece casi igual
+
+10. Quitamos los dos idiomas Inglés y Español y dejamos solo en español
+
+11. Quitar el formulario de contacto o bien poner el programa que envia los correos.
+
+
