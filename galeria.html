@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -40,13 +41,13 @@
             transition: all 0.3s ease;
         }
 
-        .header-contt {
+        .header-content {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
-            justify-contt: space-betwe;
-            align-items: cter;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
@@ -58,7 +59,7 @@
             text-decoration: none;
         }
 
-        .mu-toggle {
+        .menu-toggle {
             display: none;
             background: none;
             border: none;
@@ -68,15 +69,15 @@
             position: relative;
         }
 
-        .nav-mu {
+        .nav-menu {
             display: flex;
             list-style: none;
             gap: 40px;
             margin-left: 60px;
         }
 
-        /* Mobile Mu Styles */
-        .mobile-mu {
+        /* Mobile Menu Styles */
+        .mobile-menu {
             display: none;
             position: fixed;
             top: 0;
@@ -86,25 +87,25 @@
             background: rgba(0, 0, 0, 0.95);
             z-index: 1000;
             flex-direction: column;
-            justify-contt: cter;
-            align-items: cter;
+            justify-content: center;
+            align-items: center;
             transition: all 0.3s ease;
         }
 
-        .mobile-mu.active {
+        .mobile-menu.active {
             display: flex;
         }
 
-        .mobile-mu ul {
+        .mobile-menu ul {
             list-style: none;
-            text-align: cter;
+            text-align: center;
         }
 
-        .mobile-mu li {
+        .mobile-menu li {
             margin: 20px 0;
         }
 
-        .mobile-mu a {
+        .mobile-menu a {
             color: white;
             text-decoration: none;
             font-size: 24px;
@@ -114,27 +115,27 @@
             transition: color 0.3s ease;
         }
 
-        .mobile-mu a:hover {
+        .mobile-menu a:hover {
             color: #ccc;
         }
 
-        .mobile-mu .language-selector {
+        .mobile-menu .language-selector {
             margin-top: 40px;
         }
 
-        .mobile-mu .language-selector a {
+        .mobile-menu .language-selector a {
             color: white;
             font-size: 18px;
             margin: 0 10px;
         }
 
-        .mobile-mu .social-networks {
+        .mobile-menu .social-networks {
             margin-top: 60px;
             display: flex;
             gap: 30px;
         }
 
-        .mobile-mu .social-networks a {
+        .mobile-menu .social-networks a {
             font-size: 30px;
             color: white;
         }
@@ -151,7 +152,7 @@
             cursor: pointer;
         }
 
-        .nav-mu a {
+        .nav-menu a {
             text-decoration: none;
             color: #000;
             font-weight: 400;
@@ -161,14 +162,14 @@
             transition: color 0.3s ease;
         }
 
-        .nav-mu a:hover,
-        .nav-mu a.active {
+        .nav-menu a:hover,
+        .nav-menu a.active {
             color: #666;
         }
 
         .language-selector {
             display: flex;
-            align-items: cter;
+            align-items: center;
             gap: 10px;
             margin-left: 30px;
             padding-left: 30px;
@@ -181,8 +182,8 @@
             font-size: 12px;
         }
 
-        /* Main Contt */
-        .main-contt {
+        /* Main Content */
+        .main-content {
             margin-top: 120px;
             padding: 60px 0;
         }
@@ -194,7 +195,7 @@
         }
 
         .page-title {
-            text-align: cter;
+            text-align: center;
             margin-bottom: 80px;
         }
 
@@ -224,7 +225,7 @@
 
         .gallery-item {
             position: relative;
-            overflow: hidd;
+            overflow: hidden;
             border-radius: 8px;
             aspect-ratio: 4/3;
             cursor: pointer;
@@ -256,12 +257,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradit(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%);
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%);
             opacity: 0;
             transition: opacity 0.3s ease;
             display: flex;
-            align-items: cter;
-            justify-contt: cter;
+            align-items: center;
+            justify-content: center;
         }
 
         .gallery-item:hover .gallery-overlay {
@@ -276,8 +277,8 @@
             width: 80px;
             height: 80px;
             display: flex;
-            align-items: cter;
-            justify-contt: cter;
+            align-items: center;
+            justify-content: center;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
@@ -296,15 +297,15 @@
             height: 100%;
             background: rgba(0,0,0,0.9);
             z-index: 2000;
-            justify-contt: cter;
-            align-items: cter;
+            justify-content: center;
+            align-items: center;
         }
 
         .lightbox.active {
             display: flex;
         }
 
-        .lightbox-contt {
+        .lightbox-content {
             position: relative;
             max-width: 90%;
             max-height: 90%;
@@ -331,8 +332,8 @@
             width: 40px;
             height: 40px;
             display: flex;
-            align-items: cter;
-            justify-contt: cter;
+            align-items: center;
+            justify-content: center;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
@@ -354,8 +355,8 @@
             width: 50px;
             height: 50px;
             display: flex;
-            align-items: cter;
-            justify-contt: cter;
+            align-items: center;
+            justify-content: center;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
@@ -378,12 +379,12 @@
             background: #000;
             color: white;
             padding: 60px 0 40px;
-            text-align: cter;
+            text-align: center;
         }
 
         .social-networks {
             display: flex;
-            justify-contt: cter;
+            justify-content: center;
             gap: 20px;
             list-style: none;
             margin-bottom: 40px;
@@ -423,11 +424,11 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .mu-toggle {
+            .menu-toggle {
                 display: block;
             }
 
-            .nav-mu {
+            .nav-menu {
                 display: none;
             }
 
@@ -458,7 +459,7 @@
                 right: 20px;
             }
 
-            .header-contt {
+            .header-content {
                 padding: 0 15px;
             }
 
@@ -482,11 +483,11 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="header-contt">
+        <div class="header-content">
             <a href="index.html" class="logo">DAVID CARMONA</a>
             
             <nav>
-                <ul class="nav-mu">
+                <ul class="nav-menu">
                     <li><a href="biografia.html">Biografía</a></li>
                     <li><a href="conciertos.html">Conciertos</a></li>
                     <li><a href="discografia.html">Discografía</a></li>
@@ -495,6 +496,12 @@
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
+
+            <div class="language-selector">
+                <a href="#" class="active">ES</a>
+                <span>|</span>
+                <a href="en/gallery.html">EN</a>
+            </div>
 
             <button class="menu-toggle" id="menu-toggle">
                 <i class="fa fa-bars"></i>
